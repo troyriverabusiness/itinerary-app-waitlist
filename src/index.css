@@ -69,7 +69,7 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --animate-aurora: aurora 12s linear infinite;
+  --animate-aurora: aurora 30s linear infinite;
 }
 
 /* ── RESET & BASE ── */
