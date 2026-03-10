@@ -1,23 +1,24 @@
 import { useState, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { AuroraBackground } from '@/components/ui/aurora-background'
+import { useWaitlist } from '@/hooks/useWaitlist'
 
 const WAITLIST_COUNT = 847
 
 export function Hero() {
   const [email, setEmail] = useState('')
-  const [submitted, setSubmitted] = useState(false)
-  const [error, setError] = useState(false)
+  const [validationError, setValidationError] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
+  const { loading, success, error: apiError, subscribe } = useWaitlist()
 
-  function handleJoin() {
+  async function handleJoin() {
     const trimmed = email.trim()
     if (!trimmed || !trimmed.includes('@')) {
-      setError(true)
-      setTimeout(() => setError(false), 1400)
+      setValidationError(true)
+      setTimeout(() => setValidationError(false), 1400)
       return
     }
-    setSubmitted(true)
+    await subscribe(trimmed)
   }
 
   return (
@@ -42,9 +43,9 @@ export function Hero() {
           <div className="form-wrap">
             <label className="form-label" htmlFor="email">Reserve your place</label>
 
-            {!submitted ? (
+            {!success ? (
               <>
-                <div className={`form-row${error ? ' error' : ''}`}>
+                <div className={`form-row${validationError ? ' error' : ''}`}>
                   <input
                     ref={inputRef}
                     type="email"
@@ -52,14 +53,21 @@ export function Hero() {
                     placeholder="your@email.com"
                     autoComplete="email"
                     value={email}
+                    disabled={loading}
                     onChange={e => setEmail(e.target.value)}
                     onKeyDown={e => e.key === 'Enter' && handleJoin()}
                   />
-                  <button onClick={handleJoin}>Join →</button>
+                  <button onClick={handleJoin} disabled={loading}>
+                    {loading ? '…' : 'Join →'}
+                  </button>
                 </div>
-                <p className="form-note">
-                  <span className="count">{WAITLIST_COUNT}</span> travelers on the waitlist · iOS first · free forever
-                </p>
+                {apiError ? (
+                  <p className="form-note error-msg">{apiError}</p>
+                ) : (
+                  <p className="form-note">
+                    <span className="count">{WAITLIST_COUNT}</span> travelers on the waitlist · iOS first · free forever
+                  </p>
+                )}
               </>
             ) : (
               <p className="success-msg">✓ You're in. We'll write when it's ready.</p>

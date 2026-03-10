@@ -1,3 +1,5 @@
+import { useWaitlistCount } from "../hooks/useWaitlistCount";
+
 const avatars = [
   { letter: 'M', bg: '#5C3D28' },
   { letter: 'J', bg: '#3D5240' },
@@ -7,6 +9,9 @@ const avatars = [
 ]
 
 export function Social() {
+  const count = useWaitlistCount();
+  const label = count !== null ? `${count.toLocaleString()} travelers` : "travelers";
+
   return (
     <div className="social">
       <div className="avatars">
@@ -19,7 +24,7 @@ export function Social() {
       <span className="social-label">Waitlist</span>
       <div className="social-sep" />
       <span className="social-text">
-        <strong>847 travelers</strong> waiting for early access — growing daily
+        <strong>{label}</strong> waiting for early access — growing daily
       </span>
     </div>
   )

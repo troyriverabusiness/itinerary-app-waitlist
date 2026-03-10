@@ -308,6 +308,16 @@ body::before {
   margin-top: 10px;
 }
 
+.form-note.error-msg {
+  color: var(--rust);
+}
+
+.form-row button:disabled,
+.form-row input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .count {
   color: rgba(250, 247, 242, 0.48);
   font-weight: 500;
