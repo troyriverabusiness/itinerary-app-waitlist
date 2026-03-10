@@ -24,7 +24,7 @@ export function Social() {
       <span className="social-label">Waitlist</span>
       <div className="social-sep" />
       <span className="social-text">
-        <strong>{label}</strong> waiting for early access — growing daily
+        <strong>{label}</strong> on the waitlist, and more joining every day
       </span>
     </div>
   )

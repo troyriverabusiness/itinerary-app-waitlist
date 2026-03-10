@@ -3,18 +3,18 @@ import { useEffect, useRef } from 'react'
 const features = [
   {
     num: '01',
-    title: 'Written, not generated',
-    body: 'Every itinerary comes from a real traveler. We read each one before it goes live. No filler, ever.',
+    title: 'From people who know the place',
+    body: 'Every person who writes for us actually did that trip. We go through each one before it goes up. If it reads like something you could\'ve googled, it doesn\'t make the cut.',
   },
   {
     num: '02',
-    title: "Context you can't Google",
-    body: "The place that closed. The hike worth a 5am start. What everyone wishes they'd known before going.",
+    title: "The stuff you can't Google",
+    body: "The spots that don't show up in any search. Where people who live there actually go. The things you only learn by spending real time somewhere.",
   },
   {
     num: '03',
-    title: 'Yours to reshape',
-    body: 'Clone any route, move days around, adjust for your pace. Built to be used, not just saved.',
+    title: 'Make it yours',
+    body: 'Grab any itinerary and shape it to your trip. Swap days, skip what doesn\'t appeal, add what does. Someone else\'s plan is just your starting point.',
   },
 ]
 

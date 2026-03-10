@@ -2,14 +2,14 @@ import { useState, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { AuroraBackground } from '@/components/ui/aurora-background'
 import { useWaitlist } from '@/hooks/useWaitlist'
-
-const WAITLIST_COUNT = 847
+import { useWaitlistCount } from '@/hooks/useWaitlistCount'
 
 export function Hero() {
   const [email, setEmail] = useState('')
   const [validationError, setValidationError] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
   const { loading, success, error: apiError, subscribe } = useWaitlist()
+  const count = useWaitlistCount();
 
   async function handleJoin() {
     const trimmed = email.trim()
@@ -31,17 +31,17 @@ export function Hero() {
           transition={{ delay: 0.3, duration: 0.8, ease: 'easeInOut' }}
           className="hero-content"
         >
-          <span className="eyebrow">Written by those who were there</span>
+          <span className="eyebrow">... like a local</span>
           <h1 className="hero-h1">
-            Plans made<br />by people<br />who <em>went.</em>
+            Go anywhere<br />like you<br />live there.
           </h1>
           <p className="subtitle">
-            Itineraries written by real travelers — not curated, not generated.
-            The kind of detail you only know if you actually went.
+            Written by people who actually know the place.
+            The local tips you'd normally only hear from a friend who's been there.
           </p>
 
           <div className="form-wrap">
-            <label className="form-label" htmlFor="email">Reserve your place</label>
+            <label className="form-label" htmlFor="email">Get early access</label>
 
             {!success ? (
               <>
@@ -65,12 +65,12 @@ export function Hero() {
                   <p className="form-note error-msg">{apiError}</p>
                 ) : (
                   <p className="form-note">
-                    <span className="count">{WAITLIST_COUNT}</span> travelers on the waitlist · iOS first · free forever
+                    <span className="count">{count}</span> travelers on the waitlist · iOS first
                   </p>
                 )}
               </>
             ) : (
-              <p className="success-msg">✓ You're in. We'll write when it's ready.</p>
+              <p className="success-msg">✓ You're in. We'll email you when we launch.</p>
             )}
           </div>
         </motion.div>
