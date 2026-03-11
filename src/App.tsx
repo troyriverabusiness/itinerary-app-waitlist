@@ -1,7 +1,6 @@
 import { Nav } from './components/Nav'
 import { Hero } from './components/Hero'
 import { Features } from './components/Features'
-import { Social } from './components/Social'
 import { Footer } from './components/Footer'
 import { Analytics } from "@vercel/analytics/react"
 
@@ -11,7 +10,6 @@ export default function App() {
       <Nav />
       <Hero />
       <Features />
-      <Social />
       <Footer />
       <Analytics />
     </>
