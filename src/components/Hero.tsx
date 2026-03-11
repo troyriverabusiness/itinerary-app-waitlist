@@ -41,11 +41,11 @@ export function Hero() {
             {" like a local"}
           </div>
           <h1 className="hero-h1">
-            Go anywhere<br />like you<br />live there.
+            Travel anywhere<br />like you've<br />lived there.
           </h1>
           <p className="subtitle">
-            Written by people who actually know the place.
-            The local tips you'd normally only hear from a friend who's been there.
+            An app where locals share what's actually worth doing.
+            No generic travel lists, just tips from people who live there.
           </p>
 
           <div className="form-wrap">
