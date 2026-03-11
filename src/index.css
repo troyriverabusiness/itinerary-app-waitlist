@@ -169,6 +169,25 @@ body::before {
   border-radius: 100px;
 }
 
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.nav-appstore {
+  width: 26px;
+  height: 26px;
+  border-radius: 7px;
+  opacity: 0.75;
+  mix-blend-mode: screen;
+  transition: opacity 0.2s;
+}
+
+.nav-appstore:hover {
+  opacity: 1;
+}
+
 /* ── HERO ── */
 .hero {
   min-height: 100vh;

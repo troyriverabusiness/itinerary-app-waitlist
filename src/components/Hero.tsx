@@ -73,7 +73,7 @@ export function Hero() {
                   <p className="form-note error-msg">{apiError}</p>
                 ) : (
                   <p className="form-note">
-                    <span className="count">{count}</span> travelers on the waitlist · iOS first
+                    <span className="count">{count}</span> travelers on the waitlist
                   </p>
                 )}
               </>
