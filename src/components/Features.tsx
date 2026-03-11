@@ -4,17 +4,17 @@ const features = [
   {
     num: '01',
     title: 'From people who know the place',
-    body: 'Every person who writes for us actually did that trip. We go through each one before it goes up. If it reads like something you could\'ve googled, it doesn\'t make the cut.',
+    body: 'Real people sharing where they went and what they\'d do differently. Locals and fellow travelers drop tips in the comments. No algorithms, no bots.',
   },
   {
     num: '02',
     title: "The stuff you can't Google",
-    body: "The spots that don't show up in any search. Where people who live there actually go. The things you only learn by spending real time somewhere.",
+    body: "The shortcut a local dropped in the comments. The spot someone flagged because it already closed. The things you'd never find any other way.",
   },
   {
     num: '03',
-    title: 'Make it yours',
-    body: 'Grab any itinerary and shape it to your trip. Swap days, skip what doesn\'t appeal, add what does. Someone else\'s plan is just your starting point.',
+    title: 'A feed of real trips',
+    body: 'Browse itineraries from people who\'ve been where you\'re going. Save the ones that catch your eye. Share your own when you get back from a trip.',
   },
 ]
 

@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { AuroraBackground } from '@/components/ui/aurora-background'
+import { TextLoop } from '@/components/ui/text-loop'
 import { useWaitlist } from '@/hooks/useWaitlist'
 import { useWaitlistCount } from '@/hooks/useWaitlistCount'
 
@@ -31,7 +32,14 @@ export function Hero() {
           transition={{ delay: 0.3, duration: 0.8, ease: 'easeInOut' }}
           className="hero-content"
         >
-          <span className="eyebrow">... like a local</span>
+          <div className="eyebrow">
+            <TextLoop interval={2} transition={{ duration: 0.3 }}>
+              {["...", "eat", "travel", "club"].map((text) => (
+                <span key={text}>{text}</span>
+              ))}
+            </TextLoop>
+            {" like a local"}
+          </div>
           <h1 className="hero-h1">
             Go anywhere<br />like you<br />live there.
           </h1>
