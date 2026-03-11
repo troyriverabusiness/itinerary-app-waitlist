@@ -381,14 +381,14 @@ body::before {
 }
 
 .feature {
+  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  padding: 72px 52px;
   border-right: 1px solid var(--sand);
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.7s ease, transform 0.7s ease;
+  overflow: hidden;
 }
 
 .feature.visible {
@@ -400,10 +400,63 @@ body::before {
 .feature:nth-child(3) { transition-delay: 0.2s; }
 .feature:last-child   { border-right: none; }
 
+/* Photo — full bleed background, desktop only */
+.feature-img-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.feature-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.feature:hover .feature-img {
+  transform: scale(1.03);
+}
+
+.feature-city-tag {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(250, 247, 242, 0.75);
+  background: rgba(24, 18, 14, 0.45);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  padding: 5px 10px;
+  pointer-events: none;
+}
+
+/* Text block — sits over image with gradient scrim */
+.feature-text {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex: 1;
+  padding: 44px 52px 64px;
+  background: linear-gradient(
+    to top,
+    rgba(24, 18, 14, 0.82) 0%,
+    rgba(24, 18, 14, 0.55) 40%,
+    rgba(24, 18, 14, 0.0) 100%
+  );
+}
+
 .feature-num {
   font-family: 'DM Mono', monospace;
   font-size: 0.6rem;
-  color: var(--rust);
+  color: var(--rust-warm);
   letter-spacing: 0.16em;
   margin-bottom: 28px;
   display: block;
@@ -416,13 +469,13 @@ body::before {
   line-height: 1.2;
   letter-spacing: -0.02em;
   margin-bottom: 18px;
-  color: var(--ink);
+  color: var(--cream);
 }
 
 .feature p {
   font-size: 0.88rem;
   font-weight: 300;
-  color: var(--muted);
+  color: rgba(250, 247, 242, 0.62);
   line-height: 1.78;
   max-width: 30ch;
 }
@@ -548,11 +601,31 @@ body::before {
   .feature {
     border-right: none;
     border-bottom: 1px solid var(--sand);
-    padding: 56px 24px;
-    justify-content: flex-start;
   }
 
   .feature:last-child { border-bottom: 1.5px solid var(--ink); }
+
+  .feature-img-wrap {
+    display: none;
+  }
+
+  .feature-text {
+    padding: 56px 24px;
+    justify-content: flex-start;
+    background: none;
+  }
+
+  .feature h3 {
+    color: var(--ink);
+  }
+
+  .feature p {
+    color: var(--muted);
+  }
+
+  .feature-num {
+    color: var(--rust);
+  }
 
   .social {
     padding: 20px 24px;
