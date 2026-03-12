@@ -49,7 +49,7 @@ export function Hero() {
           </p>
 
           <div className="form-wrap">
-            <label className="form-label" htmlFor="email">Get early access</label>
+            <label className="form-label" htmlFor="email">Join the waitlist</label>
 
             {!success ? (
               <>
